@@ -37,9 +37,7 @@ var WIDTH = 20
 $(document).ready(function(){
     
 
-    //IMG = O1
-
-    TEXT = 'TEMPOINTERACTIU'
+    
 
     for(var k=0; k<IMG.Bytes.length; k++) {
         create( IMG.Bytes[k] )
@@ -51,8 +49,7 @@ $(document).ready(function(){
     i = 0
     $('div').each(function(){
         
-        //$(this).text( TEXT[Math.round(Math.random()*TEXT.length)] )
-
+        
         $(this).css('color', 'red')
         $(this).css({
             'top': -2000 + Math.random()*4000,
@@ -79,24 +76,6 @@ $(document).ready(function(){
 
     })
 
-
-    /*$(window).click(function(){
-        var z = 0
-        $('div').each(function(){
-            
-            $(this).velocity({
-            'top': "+=1000",
-            //'rotateZ': '180deg' 
-        }, Math.random()*2000)            
-
-        })
-
-    })*/
-
-    /*
-            'top': 200 + $(this).attr('y') * 8,
-            'left': 200 + $(this).attr('x') * 8 
-    */
 
 
 })

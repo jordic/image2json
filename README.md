@@ -48,7 +48,7 @@ Where byts only, outputs, position with color. For better results, this option m
 
 I builded it for deploying javascript "particle" animations, see examples folder.
 
-
+```
   ***   ***  
  *   * *   * 
 *     *     *
@@ -61,5 +61,5 @@ I builded it for deploying javascript "particle" animations, see examples folder
     *   *    
      * *     
       *      
-
+```
 

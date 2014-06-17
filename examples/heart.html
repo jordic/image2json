@@ -1,0 +1,125 @@
+<html>
+
+
+<script src="jquery-1.11.1.min.js"> </script>
+<script src="velocity/jquery.velocity.js"> </script>
+
+<script>
+
+var IMG = {"Width":13,"Height":12,"Bytes":[[2,0],[3,0],[4,0],[8,0],[9,0],[10,0],[1,1],[2,1],[3,1],[4,1],[5,1],[7,1],[8,1],[9,1],[10,1],[11,1],[0,2],[1,2],[2,2],[3,2],[4,2],[5,2],[6,2],[7,2],[8,2],[9,2],[10,2],[11,2],[12,2],[0,3],[1,3],[2,3],[3,3],[4,3],[5,3],[6,3],[7,3],[8,3],[10,3],[11,3],[12,3],[0,4],[1,4],[2,4],[3,4],[4,4],[5,4],[6,4],[7,4],[8,4],[9,4],[10,4],[11,4],[12,4],[0,5],[1,5],[2,5],[3,5],[4,5],[5,5],[6,5],[7,5],[8,5],[9,5],[10,5],[11,5],[12,5],[1,6],[2,6],[3,6],[4,6],[5,6],[6,6],[7,6],[8,6],[9,6],[10,6],[11,6],[2,7],[3,7],[4,7],[5,7],[6,7],[7,7],[8,7],[9,7],[10,7],[3,8],[4,8],[5,8],[6,8],[7,8],[8,8],[9,8],[4,9],[5,9],[6,9],[7,9],[8,9],[5,10],[6,10],[7,10],[6,11]]}
+
+
+
+obj = []
+
+function create(obj)
+{
+        var htm = "<div>*</div>" 
+        var c = $(htm).css({
+            'position': 'absolute',
+            'overflow': 'hidden'
+        }).attr({
+            x:obj[0],
+            y:obj[1],
+            //color: "rgb(" + obj.C.R + "," + obj.C.G + "," + obj.C.B+")"
+        });
+
+           
+        // veure que fem amb el renderer...
+        $('body').append(c)
+}
+
+
+var WIDTH = 20
+
+
+
+$(document).ready(function(){
+    
+
+    //IMG = O1
+
+    TEXT = 'TEMPOINTERACTIU'
+
+    for(var k=0; k<IMG.Bytes.length; k++) {
+        create( IMG.Bytes[k] )
+    }
+
+    xini = $(window).width()/2 - (IMG.Width)*WIDTH/2  
+    yini = $(window).height()/2 - (IMG.Height)*WIDTH/2
+
+    i = 0
+    $('div').each(function(){
+        
+        //$(this).text( TEXT[Math.round(Math.random()*TEXT.length)] )
+
+        $(this).css('color', 'red')
+        $(this).css({
+            'top': -2000 + Math.random()*4000,
+            'left': -2000 + Math.random()*4000,
+            'opacity': Math.random()
+        })
+
+        $(this).velocity({
+            'top': yini + $(this).attr('y') * WIDTH,
+            'left': xini + $(this).attr('x') * WIDTH,
+            'scale': ["100%", (Math.random()*2)+"%"],
+            'opacity': 1,
+            'delay': ++i*10,
+            'translateZ': 0,
+            'rotateZ': ['0deg', (Math.random()*180)+'deg'] 
+        }, Math.random()*1000)
+
+
+        $(this).mouseover(function(){
+            $(this).velocity({
+            'top': yini + 1000
+            }, 500)
+        })
+
+    })
+
+
+    /*$(window).click(function(){
+        var z = 0
+        $('div').each(function(){
+            
+            $(this).velocity({
+            'top': "+=1000",
+            //'rotateZ': '180deg' 
+        }, Math.random()*2000)            
+
+        })
+
+    })*/
+
+    /*
+            'top': 200 + $(this).attr('y') * 8,
+            'left': 200 + $(this).attr('x') * 8 
+    */
+
+
+})
+
+</script>
+
+
+<style>
+    div { font-size:24px;  }
+    body { overflow:hidden; background-color:#eaeaea;}
+
+
+<body>
+
+
+
+
+
+
+<body>
+
+
+
+
+
+</html>
